@@ -1,4 +1,4 @@
-프로젝트 이름 : Design_stationn <br />
+프로젝트 이름 : Design_station <br />
 사용된 도구 : PWA, JavaScript, GSAP, Swiper, HTML, CSS <br />
 사용환경 : PC, Mobile <br />
 :point_right: [Design_station](https://kkii0801.github.io/Design_station/)
@@ -33,6 +33,31 @@
 
 ### 코드 설명
 ``` JavaScript
+function controlMenu(n){
+  gnbList.forEach(function(item, i){
+    if(i == n){
+      gnbList[i].classList.add("active");
+    }
+    else{
+      gnbList[i].classList.remove("active");
+    }
+  });
+
+  if(n != 0){
+    menuArea.classList.add("fixed");
+    btnTop.classList.add("active");
+  }
+  else{
+    menuArea.classList.remove("fixed");
+    btnTop.classList.remove("active");
+  }
+}
+
+btnTop.addEventListener("click", function(e){
+  e.preventDefault();
+
+  gsap.to(window, { scrollTo: 0, duration: 0.4 });
+})
 ```
 ***
 
@@ -44,6 +69,143 @@
 ### 코드 설명
 #### HTML
 ``` HTML
+<section id="contact">
+  <div class="title">
+    <h2>CONTACT US</h2>
+    <p>다양한 경험과 노하우로 성공을 설계합니다.</p>
+  </div>
+  <div class="content">
+    <form>
+      <div class="form">
+        <div class="form_inner">
+          <div class="input_wrap">
+            <input type="text" id="name" placeholder="YOUR NAME*" autocomplete="off">
+            <input type="text" id="email" placeholder="YOUR EMAIL*" autocomplete="off">
+            <input type="text" id="subject" placeholder="SUBJECT*" autocomplete="off">
+          </div>
+          <div class="text_wrap">
+            <textarea placeholder="YOUR MESSAGE" autocomplete="off"></textarea>
+          </div>
+        </div>
+        <div class="submit">
+          <input type="submit" value="SEND MESSAGE">
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+```
+
+#### CSS
+``` CSS
+input[type=text]::-webkit-input-placeholder {
+	color: #bbb;
+}
+input[type=text]::-moz-placeholder {
+	color: #bbb;
+}
+input[type=text]:-ms-input-placeholder {
+	color: #bbb;
+}
+input[type=text]:-moz-placeholder {
+	color: #bbb;
+}
+textarea::placeholder {
+	color: #bbb;
+}
+input[type=text], textarea {
+	font-family: "Roboto", "Noto Sans KR", sans-serif;
+	font-size: 0.875em;
+	font-weight: 500;
+	border: none;
+}
+input[type=text] {
+	padding: 0 10px 0 20px;
+	height: 50px;
+	border-radius: 5px;
+}
+textarea {
+	padding: 20px 10px 0 20px;
+	border-radius: 5px;
+	resize: none;
+}
+input[type=submit] {
+	height: 65px;
+	font-family: "Roboto", "Noto Sans KR", sans-serif;
+	font-size: 0.875em;
+	font-weight: 500;
+	background-color: rgba(38,157,210, .6);
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	border-radius: 3px;
+}
+input[type=submit]:hover,
+input[type=submit]:focus {
+	background-color: #087eb2;
+}
+```
+```
+#contact .content .form {
+	margin: 0 auto;
+	margin-top: 78px;
+	max-width: 940px;
+}
+#contact .content .form .form_inner {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+#contact .content .form .input_wrap {
+	width: calc((100% - 40px)/2);
+}
+#contact .content .form .input_wrap input {
+	margin-top: 29px;
+	width: 100%;
+}
+#contact .content .form .input_wrap input:first-child {
+	margin-top: 0;
+}
+#contact .content .form .text_wrap {
+	width: calc((100% - 40px)/2);
+	height: 208px;
+}
+#contact .content .form .text_wrap textarea {
+	width: 100%;
+	height: 100%;
+}
+#contact .content .form .submit {
+	margin-top: 45px;
+	text-align: center;
+}
+#contact .content .form .submit input {
+	width: 240px;
+}
+
+@media only screen and (max-width: 940px) {
+	#contact .content .form {
+		margin-top: 28px;
+		padding: 0 16px;
+	}
+	#contact .content .form .input_wrap {
+		width: 100%;
+	}
+	#contact .content .form .text_wrap {
+		margin-top: 28px;
+		width: 100%;
+	}
+}
+@media only screen and (max-width: 460px) {
+	#contact .content .form .input_wrap input {
+		margin-top: 10px;
+	}
+	#contact .content .form .text_wrap {
+		margin-top: 10px;
+	}
+	#contact .content .form .submit {
+		margin-top: 20px;
+	}
+}
 ```
 
 ## PWA로 빌드하기
