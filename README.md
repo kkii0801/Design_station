@@ -159,15 +159,15 @@ gsap.to를 이용, window 객체를 대상으로 하여 스크롤을 0 위치(�
 form 태그를 이용하여 사용자가 이름, 이메일, 제목, 메시지를 입력하고 제출할 수 있는 연락처 양식을 제공할 수 있습니다. <br />
 구성 요소에 대한 설명은 아래와 같습니다. <br /><br />
 
-<div class="form"> : 폼을 감싸는 div입니다. form 태그에 직접적인 CSS 속성 값을 추가할 수 없으므로, 따로 div로 감싸주는 것이 좋습니다.<br /><br />
+div class="form" : 폼을 감싸는 div입니다. form 태그에 직접적인 CSS 속성 값을 추가할 수 없으므로, 따로 div로 감싸주는 것이 좋습니다.<br /><br />
 
-각 <input> 요소는 사용자로부터 이름, 이메일, 제목을 입력받기 위한 텍스트 필드입니다.<br /><br />
+각 input 요소는 사용자로부터 이름, 이메일, 제목을 입력받기 위한 텍스트 필드입니다.<br /><br />
 
 placeholder: 각 필드에 안내 텍스트를 표시합니다.<br />
 autocomplete="off": 브라우저의 자동 완성 기능을 끕니다.<br />
-<textarea>: 사용자가 메시지를 입력할 수 있는 다중 행 입력 필드입니다.<br /><br />
+textarea: 사용자가 메시지를 입력할 수 있는 다중 행 입력 필드입니다.<br /><br />
 
-<input type="submit"> : 폼을 제출하는 버튼입니다. 버튼의 텍스트는 "SEND MESSAGE"로 설정되어 있습니다.<br /><br />
+input type="submit : 폼을 제출하는 버튼입니다. 버튼의 텍스트는 "SEND MESSAGE"로 설정되어 있습니다.<br /><br />
 
 CSS는 다음과 같습니다.
 #### CSS
@@ -285,4 +285,4 @@ input[type=submit]:focus {
 위에 언급했듯이, form 태그에 직접적으로 CSS 속성을 부여하는 것은 나중에 HTML이 수정될 수 있으므로 지양하는 것이 좋습니다.
 ## PWA로 빌드하기
 
-PWA로 빌드하는 방법은 [link](https://github.com/kkii0801/O_Kitchen?tab=readme-ov-file#pwa%EB%A1%9C-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0)를 통해 참조할 수 있다.
+PWA로 빌드하는 방법은 [link](https://github.com/kkii0801/O_Kitchen?tab=readme-ov-file#pwa%EB%A1%9C-%EB%B9%8C%EB%93%9C%ED%95%98%EA%B8%B0)를 통해 참조할 수 있습니다.
