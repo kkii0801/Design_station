@@ -19,11 +19,67 @@
 ### 동작 예시
 <div align="center"><img src="https://github.com/kkii0801/Readme_files/blob/main/images_3/Design_menumove.gif?raw=true"></div>
 
-
 ### 코드 설명
 #### JavaScript
 ```
+let header = document.querySelector("#header");
+let section = this.document.querySelectorAll("section");
+let pageList = [header];
+section.forEach(function(item){
+    pageList.push(item);
+});
 ```
+pageList 배열에 먼저 header를 추가해준 다음 section 배열을 추가해줍니다.
+```
+function controlMenu(n){
+	gnbList.forEach(function(item, i){
+		if(i == n){
+			gnbList[i].classList.add("active");
+		}
+		else{
+			gnbList[i].classList.remove("active");
+		}
+	});
+	
+	if(n != 0){
+		menuArea.classList.add("fixed");
+		btnTop.classList.add("active");
+	}
+	else{
+		menuArea.classList.remove("fixed");
+		btnTop.classList.remove("active");
+	}
+}
+```
+controlMenu 함수는 메뉴의 활성화 상태를 제어합니다. <br />
+n 매개변수는 현재 활성화할 메뉴 항목의 인덱스입니다. <br />
+해당 인덱스의 메뉴 항목에 active 클래스를 추가하고, 나머지 항목에서는 제거합니다.
+```
+gnbList.forEach(function(item, i){
+	gnbList[i].addEventListener("click", function(e){
+		e.preventDefault();
+
+		topPos=pageList[i].offsetTop;
+
+		gsap.to(window, { scrollTo: topPos, duration: 0.4 });
+	});
+
+	mobileGnbList[i].addEventListener("click", function(e){
+		e.preventDefault();
+
+		topPos=pageList[i].offsetTop;
+
+		gsap.to(window, { scrollTo: topPos, duration: 0.4, onComplete: function(){
+			tab.classList.remove("active");
+			mobile.classList.remove("active");
+			dim.classList.remove("active");
+		}});
+	});
+});
+```
+각 내비게이션 항목에 클릭 이벤트 리스너를 추가합니다. <br />
+클릭 시 해당 섹션의 위치(offsetTop)로 스크롤합니다. gsap.to를 사용하여 애니메이션 효과를 주며 부드럽게 이동할 수 있습니다. <br />
+모바일 메뉴의 경우, 스크롤이 완료된 후 탭과 모바일 메뉴를 비활성화합니다.
 ***
 
 ## 오른쪽 하단에 고정된 top 버튼 구현하기
@@ -52,13 +108,18 @@ function controlMenu(n){
     btnTop.classList.remove("active");
   }
 }
-
+```
+위에 설명에 이어서, <br />
+만약 n이 0이 아니면 메뉴를 고정하고, top 버튼을 활성화합니다.
+```
 btnTop.addEventListener("click", function(e){
   e.preventDefault();
 
   gsap.to(window, { scrollTo: 0, duration: 0.4 });
 })
 ```
+btnTop 요소에 클릭 이벤트 리스너를 추가합니다. <br />
+gsap.to를 이용, window 객체를 대상으로 하여 스크롤을 0 위치(페이지 맨 위)로 이동하도록 설정합니다.
 ***
 
 ## form 태그 활용하기
