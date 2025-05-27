@@ -88,6 +88,7 @@ gnbList.forEach(function(item, i){
 <div align="center"><img src="https://github.com/kkii0801/Readme_files/blob/main/images_3/Design_top.gif?raw=true"></div>
 
 ### 코드 설명
+#### JavaScript
 ``` JavaScript
 function controlMenu(n){
   gnbList.forEach(function(item, i){
